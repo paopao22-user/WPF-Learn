@@ -67,7 +67,7 @@ namespace SerialPortHexDemo
         /// </summary>
         private static void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            SerialPort sp = (SerialPort)sender;
+            SerialPort sp = (SerialPort)sender; // 获取触发事件的串口对象
 
             try
             {
@@ -75,12 +75,12 @@ namespace SerialPortHexDemo
                 Thread.Sleep(20);
 
                 // 1. 获取当前缓冲区积攒的字节总数
-                int bytesToRead = sp.BytesToRead;
+                int bytesToRead = sp.BytesToRead; // 获取缓冲区字节数
                 if (bytesToRead == 0) return;
 
                 // 2. 声明精准尺寸的字节数组，一次性读出
-                byte[] recvBuffer = new byte[bytesToRead];
-                sp.Read(recvBuffer, 0, bytesToRead);
+                byte[] recvBuffer = new byte[bytesToRead];  // 准备符合实际长度的数组的空白容器
+                sp.Read(recvBuffer, 0, bytesToRead);        // 读取缓冲区的所有字节到数组中
 
                 // 3. 将收到的字节以 Hex 打印
                 string hexReceived = string.Join(" ", recvBuffer.Select(b => b.ToString("X2")));

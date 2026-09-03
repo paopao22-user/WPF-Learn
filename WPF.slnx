@@ -1,11 +1,14 @@
 <Solution>
   <Folder Name="/day01-Wpf/">
+    <Project Path="Byte字节流练习-压力传感器/Byte字节流练习-压力传感器.csproj" Id="8b830889-42bf-4b48-beb5-b8625581e535" />
+    <Project Path="Byte字节流练习-温度传感器/Byte字节流练习-温度传感器.csproj" Id="75e34ef1-6e81-40d3-b3d2-0e42e0cdddaa" />
     <Project Path="day01-1-Wpf-Framework/day01-1-Wpf-Framework.csproj" Id="a3c40597-0769-4428-a899-1682e84bb660" />
     <Project Path="day01-2-Wpf-Core/day01-2-Wpf-Core.csproj" />
     <Project Path="day01-3-Core-Close/day01-3-Core-Close.csproj" Id="624a39f7-2ee8-4024-98e2-9fba457a98b7" />
     <Project Path="day01-4-Shutdown_Exit/day01-4-Shutdown_Exit.csproj" Id="5b660ee1-1773-4262-99d7-b9c4918c53a4" />
     <Project Path="串口通讯/串口通讯.csproj" Id="7f5ba6a4-4d3b-459a-9e70-521639751bf7" />
     <Project Path="双向异步串口通讯/双向异步串口通讯.csproj" Id="f3f8343e-c09e-437f-93b8-540634a83192" />
+    <Project Path="字节流串口通讯/字节流串口通讯.csproj" Id="90588a3f-a1f4-4e42-8ba4-2c040613a618" />
   </Folder>
   <Folder Name="/day02-布局控件/">
     <Project Path="day02-1-Grid/day02-1-Grid.csproj" Id="c62d9786-aaa7-46e3-8103-bdab509671d2" />

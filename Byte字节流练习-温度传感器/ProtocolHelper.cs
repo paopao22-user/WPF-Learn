@@ -42,7 +42,7 @@ namespace Byte字节流练习_温度传感器
                 // item.ToString("X2")：将当前字节转为 2 位大写十六进制（如 10 -> "0A"）
                 // + " "：在每个字节后面追加一个空格，方便人眼将字节彼此分开
                 // result +=：把新生成的片段追加到大字符串末尾
-                result += item.ToString("X2") + "";
+                result += item.ToString("X2") + " ";
             }
 
             // 4. 修剪并返回结果
