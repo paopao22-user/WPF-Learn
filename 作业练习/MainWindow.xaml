@@ -1,0 +1,81 @@
+﻿<Window x:Class="作业练习.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:作业练习"
+        mc:Ignorable="d"
+        Title="计算器" Height="600" Width="400"
+        Icon="/Images/Calculator.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 上半部分 -->
+        <Grid Grid.Row="0">
+            <TextBlock Text="(8+7)*2" FontWeight="Heavy" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 5 0 0"/>
+            <TextBlock Text="30" FontWeight="Heavy" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20 10"/>
+        </Grid>
+
+        <!-- 下半部分 -->
+        <UniformGrid Grid.Row="1" Rows="5" Columns="4" Margin="5 10">
+            <!-- 先统一提取公共样式 -->
+            <UniformGrid.Resources>
+                
+                <!-- 设置button的圆角和外观 -->
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="OrangeRed"/>
+                    <Setter Property="Background" Value="LavenderBlush"/>
+                    <Setter Property="Margin" Value="3 6"/>
+
+                    <!-- 设置圆角模板 -->
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                                        CornerRadius="10"
+                                        BorderThickness="1"
+                                        BorderBrush="LightGray">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                </Border>
+                            </ControlTemplate>
+                             
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </UniformGrid.Resources>
+
+            <!-- 每个按钮只需要写content和click -->
+            <Button Content="(" Click="btn_Click"/>
+            <Button Content=")" Click="btn_Click"/>
+            <Button Content="%" Click="btn_Click"/>
+            <Button Content="AC" Click="btn_Click"/>
+
+            <Button Content="7" Click="btn_Click"/>
+            <Button Content="8" Click="btn_Click"/>
+            <Button Content="9" Click="btn_Click"/>
+            <Button Content="+" Click="btn_Click"/>
+
+            <Button Content="4" Click="btn_Click"/>
+            <Button Content="5" Click="btn_Click"/>
+            <Button Content="6" Click="btn_Click"/>
+            <Button Content="*" Click="btn_Click"/>
+
+            <Button Content="1" Click="btn_Click"/>
+            <Button Content="2" Click="btn_Click"/>
+            <Button Content="3" Click="btn_Click"/>
+            <Button Content="-" Click="btn_Click"/>
+
+            <Button Content="0" Click="btn_Click"/>
+            <Button Content="." Click="btn_Click"/>
+            <Button Content="=" Click="btn_Click" Background="LightBlue"/>
+            <!-- 特殊颜色单独覆盖即可 -->
+            <Button Content="+" Click="btn_Click"/>
+        </UniformGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,276 @@
+<Window x:Class="健康之源项目.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:健康之源项目"
+        mc:Ignorable="d"
+        Title="健康之源管理系统" Height="550" Width="800"
+ 
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen" 
+        AllowsTransparency="True"
+        Background="Transparent" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <Window.Resources>
+        <Style TargetType="Border" x:Key="WpfBorder">
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+        </Style>
+
+        <!--顶部菜单图标 Style-->
+        <Style TargetType="Image" x:Key="MenuItem">
+            <Setter Property="Source" Value="/Images/menu.png"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0,0,15,0"/>
+
+            <!--触发器-->
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Width" 
+                                             To="25"
+                                             Duration="0:0:0.1"
+                                             AutoReverse="True"/>
+
+                            <DoubleAnimation Storyboard.TargetProperty="Height" 
+                                             To="25"
+                                             Duration="0:0:0.1"
+                                             AutoReverse="True"/>
+
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             From="1"
+                                             To="0.5"
+                                             Duration="0:0:0.3"
+                                             AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--退出按钮 Style-->
+        <Style TargetType="Image" x:Key="ExitButton">
+            <Setter Property="Source" Value="/Images/shutdown_def.png"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0,0,20,0"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Source" Value="/Images/shutdown_mo.png"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--左侧菜单 Border-->
+        <Style TargetType="Border" x:Key="MenuBorderStyle">
+            <Setter Property="Background" Value="SlateBlue"/>
+            <Setter Property="CornerRadius" Value="0,50,0,20"/>
+        </Style>
+
+        <!--头像style-->
+        <Style TargetType="Image" x:Key="PhotoImage">
+            <Setter Property="Source" Value="/Images/photo.jpeg"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="80"/>
+        </Style>
+
+        <!--菜单小图标 Style-->
+        <Style TargetType="Image" x:Key="MenuImg">
+            <Setter Property="Width" Value="23"/>
+            <Setter Property="Height" Value="23"/>
+        </Style>
+
+        <!--菜单文字 Style-->
+        <Style TargetType="TextBlock" x:Key="MenuText">
+            <Setter Property="Foreground" Value="Silver"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+
+        <!--RadioButton的style-->
+        <Style TargetType="RadioButton" x:Key="MenuBtn">
+            <Setter Property="Margin" Value="0, 5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="MenuBtnBorder"
+                                Margin="15, 0"
+                                Padding="10,8"
+                                CornerRadius="10">
+
+                            <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <!-- 鼠标经过 -->
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+
+                                <Setter TargetName="MenuBtnBorder"
+                                        Property="Background"
+                                        Value="MediumSlateBlue"/>   
+                               
+                            </Trigger>
+
+                            <!-- 被选中 -->
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+
+                                <Setter TargetName="MenuBtnBorder"
+                                        Property="Background"
+                                        Value="PaleTurquoise"/>
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Style="{StaticResource WpfBorder}">
+        <Grid>
+            <!--列定义-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--行定义-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <!--左上：菜单按钮区域-->
+            <Image Grid.Row="0" Grid.Column="0" 
+                   Style="{StaticResource MenuItem}"
+                   MouseLeftButtonDown="MenuImage_MouseLeftButtonDown"/>
+
+
+            <!--右上：顶部区域-->
+            <Image Grid.Row="0" Grid.Column="1"
+                   Style="{StaticResource ExitButton}"
+                   MouseLeftButtonDown="ExitButton_MouseLeftButtonDown"/>
+
+
+
+            <!--左下：左侧菜单-->
+            <Border x:Name="MenuBorder" Grid.Row="1" Grid.Column="0" Style="{StaticResource MenuBorderStyle}">
+                <StackPanel>
+                    
+                        <!--头像-->
+                    <Grid Height="60">
+                        <Image x:Name="imgAvatar" Style="{StaticResource PhotoImage}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,-40,0,0"
+                               Cursor="Hand"
+                               MouseLeftButtonDown="Avatar_MouseLeftButtonDown">
+                            <Image.Clip>
+                                <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40"/>
+                            </Image.Clip>
+                        </Image>
+                    </Grid>
+
+                    <!--分割线-->
+                    <Separator Margin="20,10,20,20" Background="WhiteSmoke"/>
+                    
+                    <!--员工管理-->
+                    <RadioButton Style="{StaticResource MenuBtn}"
+                                 GroupName="MenuGroup"
+                                 IsChecked="True"
+                                 Click="EmployeeMenu_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/员工管理.png"
+                               Style="{StaticResource MenuImg}"/>
+
+                            <TextBlock Text="员工管理"
+                                   Style="{StaticResource MenuText}"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0"/>
+
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--会员管理-->
+                    <RadioButton Style="{StaticResource MenuBtn}"
+                                 GroupName="MenuGroup"
+                                 Click="MemberMenu_Click">
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <Image Source="/Images/会员管理.png"
+                                   Style="{StaticResource MenuImg}"/>
+
+                            <TextBlock Text="会员管理"
+                                       Style="{StaticResource MenuText}"
+                                       VerticalAlignment="Center"
+                                       Margin="8,0,0,0"/>
+
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--订单管理-->
+                    <RadioButton Style="{StaticResource MenuBtn}"
+                                 GroupName="MenuGroup"
+                                 Click="OrderMenu_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/订单管理.png"
+                                   Style="{StaticResource MenuImg}"/>
+
+                            <TextBlock Text="订单管理"
+                                       Style="{StaticResource MenuText}"
+                                       VerticalAlignment="Center"
+                                       Margin="8,0,0,0"/>
+                        </StackPanel>
+                    </RadioButton>
+                    
+                    <!--包房管理-->
+                    <RadioButton Style="{StaticResource MenuBtn}"
+                                 GroupName="MenuGroup"
+                                 Click="RoomMenu_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/包房管理.png"
+                                   Style="{StaticResource MenuImg}"/>
+
+                            <TextBlock Text="包房管理"
+                                       Style="{StaticResource MenuText}"
+                                       VerticalAlignment="Center"
+                                       Margin="8,0,0,0"/>
+
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--餐桌管理-->
+                    <RadioButton Style="{StaticResource MenuBtn}"
+                                 GroupName="MenuGroup"
+                                 Click="TableMenu_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/餐桌管理.png"
+                                   Style="{StaticResource MenuImg}"/>
+
+                            <TextBlock Text="餐桌管理"
+                                       Style="{StaticResource MenuText}"
+                                       VerticalAlignment="Center"
+                                       Margin="8,0,0,0"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                </StackPanel>
+            </Border>
+
+            <!--右下：页面内容-->
+            <Frame x:Name="ContentFrame" Grid.Row="1" Grid.Column="1" Margin="15" Source="WelcomePage.xaml"/>
+
+        </Grid>
+    </Border>
+</Window>

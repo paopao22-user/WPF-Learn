@@ -1,0 +1,125 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\front office.png" />
+    <None Remove="Images\menu.png" />
+    <None Remove="Images\photo.jpeg" />
+    <None Remove="Images\shutdown_def.png" />
+    <None Remove="Images\shutdown_mo.png" />
+    <None Remove="Images\会员管理.png" />
+    <None Remove="Images\修改.png" />
+    <None Remove="Images\修改按钮面.png" />
+    <None Remove="Images\删除.png" />
+    <None Remove="Images\删除按钮.png" />
+    <None Remove="Images\动图.gif" />
+    <None Remove="Images\包房管理.png" />
+    <None Remove="Images\员工管理.png" />
+    <None Remove="Images\添加.png" />
+    <None Remove="Images\订单管理.png" />
+    <None Remove="Images\餐桌管理.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\订单管理.png" />
+    <Resource Include="Images\餐桌管理.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\修改按钮面.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\修改.png" />
+    <Resource Include="Images\删除.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\会员管理.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\front office.png" />
+    <Resource Include="Images\menu.png" />
+    <Resource Include="Images\photo.jpeg" />
+    <Resource Include="Images\shutdown_def.png" />
+    <Resource Include="Images\shutdown_mo.png" />
+    <Resource Include="Images\删除按钮.png" />
+    <Resource Include="Images\动图.gif" />
+    <Resource Include="Images\包房管理.png" />
+    <Resource Include="Images\员工管理.png" />
+    <Resource Include="Images\添加.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 批量将所有图片作为 WPF 嵌入资源（在 XAML 中用 /Images/xxx.png 访问） -->
+    <Resource Update="Images\**\*" />
+    <Resource Update="Resources\**\*" />
+    <!-- 批量将所有图片复制到输出目录（如果在代码中需要物理文件读取） -->
+    <None Update="Images\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Update="Images\front office.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\photo.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\shutdown_def.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\shutdown_mo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\会员管理.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\修改.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\修改按钮面.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\删除.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\删除按钮.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\动图.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\包房管理.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\员工管理.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\添加.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\订单管理.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\餐桌管理.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

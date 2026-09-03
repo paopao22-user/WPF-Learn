@@ -1,0 +1,54 @@
+<Solution>
+  <Folder Name="/day01-Wpf/">
+    <Project Path="day01-1-Wpf-Framework/day01-1-Wpf-Framework.csproj" Id="a3c40597-0769-4428-a899-1682e84bb660" />
+    <Project Path="day01-2-Wpf-Core/day01-2-Wpf-Core.csproj" />
+    <Project Path="day01-3-Core-Close/day01-3-Core-Close.csproj" Id="624a39f7-2ee8-4024-98e2-9fba457a98b7" />
+    <Project Path="day01-4-Shutdown_Exit/day01-4-Shutdown_Exit.csproj" Id="5b660ee1-1773-4262-99d7-b9c4918c53a4" />
+    <Project Path="串口通讯/串口通讯.csproj" Id="7f5ba6a4-4d3b-459a-9e70-521639751bf7" />
+    <Project Path="双向异步串口通讯/双向异步串口通讯.csproj" Id="f3f8343e-c09e-437f-93b8-540634a83192" />
+  </Folder>
+  <Folder Name="/day02-布局控件/">
+    <Project Path="day02-1-Grid/day02-1-Grid.csproj" Id="c62d9786-aaa7-46e3-8103-bdab509671d2" />
+    <Project Path="day02-2-UniformGrid/day02-2-UniformGrid.csproj" Id="5e88a39e-0263-43a8-b414-74a2eb996455" />
+    <Project Path="day02-3-StackPanel/day02-3-StackPanel.csproj" Id="7408f245-067e-4924-9d66-ddc7c58b8f39" />
+    <Project Path="day02-4-WrapPanel/day02-4-WrapPanel.csproj" Id="ac3b44ef-fae3-4bec-bdc3-21c26815a8e1" />
+    <Project Path="day02-5-DockPanel/day02-5-DockPanel.csproj" Id="ac33337e-d988-40c6-ac3b-84e7371fc3c6" />
+    <Project Path="day02-6-Canvas/day02-6-Canvas.csproj" Id="bb67767f-a491-4d2d-a857-5453245860ef" />
+    <Project Path="day02-7-Border/day02-7-Border.csproj" Id="92c30f10-6452-481f-9a91-a5732534cd79" />
+    <Project Path="day02-8-GridSplitter/day02-8-GridSplitter.csproj" Id="04ac05ab-154d-4b82-ab70-86bbdcc6b181" />
+  </Folder>
+  <Folder Name="/day03-内容控件/">
+    <Project Path="day03-1-TextBlock/day03-1-TextBlock.csproj" Id="0b955023-bf11-443a-b0a0-961660c5621b" />
+    <Project Path="WpfApp1/WpfApp1.csproj" Id="d0adebf6-7442-4330-b526-89203c396c73" />
+    <Project Path="作业/作业.csproj" Id="f170b524-7839-4fd2-860c-ba716a9cf1f5" />
+    <Project Path="作业练习/作业练习.csproj" Id="bd351b8e-4764-40f2-8d3a-62453368e711" />
+    <Project Path="数据绑定/数据绑定.csproj" Id="d5d115dd-45cf-497b-821d-5042c7ca3d3a" />
+  </Folder>
+  <Folder Name="/day04-EFCore-WebApi-JWT/">
+    <Project Path="../day04/src/Day04.Api/Day04.Api.csproj" />
+    <Project Path="../day04/src/Day04.Shared/Day04.Shared.csproj" />
+    <Project Path="../day04/src/Day04.Wpf/Day04.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/day05/">
+    <Project Path="wpf-webapi/wpf-webapi.csproj" Id="e1bb32cf-8843-48ca-87d8-483aa34a3077" />
+    <Project Path="WpfClient/WpfClient.csproj" Id="689432ef-718a-4eac-b028-5e670c202429" />
+  </Folder>
+  <Folder Name="/day06/">
+    <Project Path="Command练习/Command练习.csproj" Id="d83f24f5-2b33-4012-ba49-d994aaee860c" />
+    <Project Path="数据绑定01/数据绑定01.csproj" Id="d2cb04b1-17d7-4c74-98c5-03be53cf935b" />
+    <Project Path="登录小项目/登录小项目.csproj" Id="dbbe0410-4af3-4abf-a2b8-07ff8f5da046" />
+  </Folder>
+  <Folder Name="/day07/">
+    <Project Path="健康之源项目/健康之源项目.csproj" Id="9a91fdfa-8203-414a-baea-4e23d302f77b" />
+  </Folder>
+  <Folder Name="/day08/">
+    <Project Path="day08_1CommandBase/day08_1CommandBase.csproj" Id="015b141c-4135-42f6-9e42-e3e281ce914a" />
+    <Project Path="智能登录校验面板/智能登录校验面板.csproj" Id="927e577b-d2de-41bd-872a-60213bae215b" />
+    <Project Path="智能登录校验面版改造/智能登录校验面版改造.csproj" Id="5cacd2a2-b9f5-49f0-ad6b-dda70db21514" />
+    <Project Path="智能计算器/智能计算器.csproj" Id="085be8bc-089f-42f9-b92a-c72f5851fe9f" />
+  </Folder>
+  <Folder Name="/day09/">
+    <Project Path="day09-1Prism入门/day09-1Prism入门.csproj" Id="892a16a1-1862-4a26-ace2-b1aed6127437" />
+    <Project Path="day09-2Prism模板/Prism模板.csproj" Id="c298e284-f8ab-4356-9045-9949d8ef28a4" />
+  </Folder>
+</Solution>

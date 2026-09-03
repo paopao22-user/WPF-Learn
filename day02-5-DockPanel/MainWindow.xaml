@@ -1,0 +1,16 @@
+﻿<Window x:Class="day02_5_DockPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:day02_5_DockPanel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <Button DockPanel.Dock="Top" Content="顶部" Height="60" Background="Teal" Foreground="White"/>
+        <Button DockPanel.Dock="Left" Content="左边" Width="120" Background="Azure" Foreground="Pink"/>
+        <Button DockPanel.Dock="Right" Content="右边" Width="120" Background="Brown" Foreground="DarkBlue"/>
+        <Button DockPanel.Dock="Bottom" Content="底部" Height="40" Background="LawnGreen" Foreground="DarkOrange"/>
+        <Button Content="中间" Background="LightGray"/>
+    </DockPanel>
+</Window>

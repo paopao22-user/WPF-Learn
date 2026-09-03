@@ -1,0 +1,14 @@
+﻿<Window x:Class="day01_4_Shutdown_Exit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:day01_4_Shutdown_Exit"
+        mc:Ignorable="d"
+        Title="退出程序练习" Height="300" Width="500">
+    <StackPanel>
+        <Button Content="优雅退出 Shutdown()" Click="Btn_Shutdown" Height="40" FontSize="15" Margin="10"/>
+        <Button Content="强制退出 Exit(0)" Click="Btn_Exit" Height="40" FontSize="15" Margin="10"/>
+        <Button Content="启动后台程序" Click="Btn_StartThread" Height="40" FontSize="15" Margin="10"/>
+    </StackPanel>
+</Window>

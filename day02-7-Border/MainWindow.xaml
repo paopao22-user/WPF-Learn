@@ -1,0 +1,25 @@
+﻿<Window x:Class="day02_7_Border.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:day02_7_Border"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <StackPanel Margin="0,0,-21,-5">
+        <!-- 基础边框 -->
+        <Border BorderThickness="3" BorderBrush="DarkBlue" Height="80" Width="200" Margin="20">
+            <Label Content="矩形边框" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- 圆角+背景  -->
+        <Border BorderThickness="3" BorderBrush="Blue" Background="Orange" CornerRadius="10" Height="80" Width="200" Margin="20">
+            <Label Content="圆角矩形" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- 正圆形 -->
+        <Border BorderThickness="3" BorderBrush="Blue" Background="OrangeRed" CornerRadius="100" Height="200" Width="200" Margin="20">
+            <Label Content="正圆形" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </StackPanel>
+</Window>

@@ -1,0 +1,104 @@
+﻿<Window x:Class="作业.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:作业"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <!-- 顶部区域 -->
+         <StackPanel Orientation="Horizontal" Background="Teal" Grid.Row="0">
+            <TextBlock Margin="20 0" Height="50" Width="650" VerticalAlignment="Center" Foreground="Red" FontSize="30">
+                路飞学城
+            </TextBlock>
+
+            <Border Width="100" Background="blue" Height="50" CornerRadius="10">
+                <TextBlock VerticalAlignment="Center"  Foreground="Red" HorizontalAlignment="Center">
+                    退出
+                </TextBlock>
+            </Border>
+        </StackPanel>
+
+        <!-- 中间区域 -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 左侧菜单栏 -->
+                <StackPanel Orientation="Vertical" Background="AntiqueWhite" Grid.Column="0">
+                <TextBlock FontSize="20" Foreground="white" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    菜单栏
+                </TextBlock>
+            </StackPanel>
+
+            <!-- 中间内容栏 -->
+            <StackPanel Orientation="Vertical" Grid.Column="1" Background="Azure">
+                <TextBlock Foreground="Red" Margin="10" FontSize="15" VerticalAlignment="Center">
+                    主内容区域
+                </TextBlock>
+
+               
+                <UniformGrid Columns="3" Background="Beige" Width="400" Height="120">
+                    
+                    <Border Height="70" Width="100" Canvas.Left="50" Background="Teal" CornerRadius="10">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                it自学卡
+                            </TextBlock>
+
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                3w
+                            </TextBlock>
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border Height="70" Width="100" Canvas.Left="50" Background="Teal" CornerRadius="10">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                it自学卡
+                            </TextBlock>
+
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                3w
+                            </TextBlock>
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border Height="70" Width="100" Canvas.Left="50" Background="Teal" CornerRadius="10">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                it自学卡
+                            </TextBlock>
+
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                 3w
+                            </TextBlock>
+                        </StackPanel>
+
+                    </Border>
+
+                </UniformGrid>
+                
+            </StackPanel>
+
+        </Grid>
+
+        <!-- 底部区域 -->
+        <Border Background="Gray" Grid.Row="2">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                版本所有路飞学城
+            </TextBlock>
+        </Border>
+
+    </Grid>
+</Window>
