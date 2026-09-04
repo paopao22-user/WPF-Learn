@@ -12,6 +12,9 @@ namespace Byte字节流练习_压力传感器
 
         private SerialPort? _serialPort;
 
+        /// <summary>
+        /// 构造函数： 配置参数
+        /// </summary>
         public SerialPortService()
         {
             _serialPort = new SerialPort();
@@ -50,7 +53,7 @@ namespace Byte字节流练习_压力传感器
         }
 
         /// <summary>
-        /// 发送byte[] 数据
+        /// 发送byte[] 数据 
         /// </summary>
         /// <param name="data"></param>
         public void Send(byte[] data)   
@@ -77,7 +80,7 @@ namespace Byte字节流练习_压力传感器
         }
 
         /// <summary>
-        /// COM1 收到数据
+        /// COM1 收到数据 ：收byte[]数据
         /// </summary>
         private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {

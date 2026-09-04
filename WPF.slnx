@@ -2,6 +2,7 @@
   <Folder Name="/day01-Wpf/">
     <Project Path="Byte字节流练习-压力传感器/Byte字节流练习-压力传感器.csproj" Id="8b830889-42bf-4b48-beb5-b8625581e535" />
     <Project Path="Byte字节流练习-温度传感器/Byte字节流练习-温度传感器.csproj" Id="75e34ef1-6e81-40d3-b3d2-0e42e0cdddaa" />
+    <Project Path="Byte字节流练习_设置报警温度/Byte字节流练习_设置报警温度.csproj" Id="841a994c-7115-46f8-9a9e-8cd03df22281" />
     <Project Path="day01-1-Wpf-Framework/day01-1-Wpf-Framework.csproj" Id="a3c40597-0769-4428-a899-1682e84bb660" />
     <Project Path="day01-2-Wpf-Core/day01-2-Wpf-Core.csproj" />
     <Project Path="day01-3-Core-Close/day01-3-Core-Close.csproj" Id="624a39f7-2ee8-4024-98e2-9fba457a98b7" />
@@ -49,6 +50,7 @@
     <Project Path="智能登录校验面板/智能登录校验面板.csproj" Id="927e577b-d2de-41bd-872a-60213bae215b" />
     <Project Path="智能登录校验面版改造/智能登录校验面版改造.csproj" Id="5cacd2a2-b9f5-49f0-ad6b-dda70db21514" />
     <Project Path="智能计算器/智能计算器.csproj" Id="085be8bc-089f-42f9-b92a-c72f5851fe9f" />
+    <Project Path="设备通讯参数校验面板/设备通讯参数校验面板.csproj" Id="f4d76235-51cf-4758-9af9-d1c2963deaed" />
   </Folder>
   <Folder Name="/day09/">
     <Project Path="day09-1Prism入门/day09-1Prism入门.csproj" Id="892a16a1-1862-4a26-ace2-b1aed6127437" />

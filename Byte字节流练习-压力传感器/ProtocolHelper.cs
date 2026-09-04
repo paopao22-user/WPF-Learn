@@ -10,7 +10,7 @@ namespace Byte字节流练习_压力传感器
     public static class ProtocolHelper
     {
         /// <summary>
-        /// 构建读取压力命令
+        /// 构建读取压力命令:  按照协议组包
         /// AB 02 04 00
         /// </summary>
         /// <returns></returns>
@@ -28,7 +28,7 @@ namespace Byte字节流练习_压力传感器
         }
 
         /// <summary>
-        /// byte[] 转为Hex,仅仅用于显示
+        /// byte[] 转为Hex,仅仅用于显示： 为了让开发人员方便看 Byte
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -55,7 +55,7 @@ namespace Byte字节流练习_压力传感器
         }
 
         /// <summary>
-        /// 解析压力响应
+        /// 解析压力响应  : 按照协议拆包
         /// </summary>
         /// AB 02 04 03 01 04 D2
         /// <param name="response"></param>
