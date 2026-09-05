@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:设备通讯参数校验面板"
         xmlns:vm="clr-namespace:设备通讯参数校验面板.ViewModels"
         mc:Ignorable="d"
-        Title="设备通讯参数校验面板" Height="520" Width="700"
+        Title="设备通讯参数校验面板" Height="800" Width="700"
         WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
@@ -31,6 +31,40 @@
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
+
+                <TextBlock Text="通讯参数预设"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,8"/>
+
+                <Grid Margin="0,0,0,20">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                            Content="PLC"
+                            Height="34"
+                            Command="{Binding ApplyPresetCommand}"
+                            CommandParameter="PLC"/>
+
+                    <Button Grid.Column="2"
+                            Content="Modbus TCP"
+                            Height="34"
+                            Command="{Binding ApplyPresetCommand}"
+                            CommandParameter="ModbusTCP"/>
+
+                    <Button Grid.Column="4"
+                            Content="本机测试"
+                            Height="34"
+                            Command="{Binding ApplyPresetCommand}"
+                            CommandParameter="LocalTest"/>
+                </Grid>
 
                 <TextBlock Text="设备名称"
                            FontSize="14"
@@ -71,6 +105,33 @@
                          Height="36"
                          Padding="10, 5"
                          Margin="0,0,0,25"/>
+
+                <TextBlock Text="快捷采样周期"
+                           FontSize="14"
+                           Margin="0,0,0,6"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+
+                    <Button Content="500ms"
+                            Width="90"
+                            Height="30"
+                            Margin="0,0,10,0"
+                            Command="{Binding SetIntervalCommand}"
+                            CommandParameter="500"/>
+
+                    <Button Content="1000ms"
+                            Width="90"
+                            Height="30"
+                            Margin="0,0,10,0"
+                            Command="{Binding SetIntervalCommand}"
+                            CommandParameter="1000"/>
+
+                    <Button Content="2000 ms"
+                            Width="90"
+                            Height="30"
+                            Command="{Binding SetIntervalCommand}"
+                            CommandParameter="2000"/>   
+                </StackPanel>
                 <Grid>
 
                     <Grid.ColumnDefinitions>
@@ -93,6 +154,15 @@
                             FontSize="15"
                             Command="{Binding ResetCommand}"/>
                 </Grid>
+
+                <Border Background="#F3F4F6"
+                        Padding="10"
+                        CornerRadius="6"
+                        Margin="0,20,0,0">
+
+                    <TextBlock Text="{Binding StatusText}"
+                               FontSize="14"/>
+                </Border>
 
             </StackPanel>
 

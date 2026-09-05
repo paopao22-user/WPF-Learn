@@ -10,6 +10,14 @@ namespace 设备通讯参数校验面板.ViewModels
 {
     public class DeviceConfigViewModel: ViewModelBase
     {
+        private string _statusText = "等待配置";
+
+        public string StatusText
+        {
+            get => _statusText;
+            set => SetProperty(ref _statusText, value);
+        }
+
         // 01. 属性对应的私有字段
         private string _deviceName = string.Empty;
 
@@ -79,21 +87,64 @@ namespace 设备通讯参数校验面板.ViewModels
 
         public RelayCommand ResetCommand { get; }
 
+        public ParameterRelayCommand ApplyPresetCommand {  get; }
+
+        public RelayCommand<string> SetIntervalCommand { get; }
+
         //构造函数
         public DeviceConfigViewModel()
         {
             ConnectCommand = new RelayCommand(execute: Connect, canExecute: CanConnect);
             ResetCommand = new RelayCommand(execute: Reset, canExecute: CanReset);
+            ApplyPresetCommand = new ParameterRelayCommand(execute:ApplyPreset);
+            SetIntervalCommand = new RelayCommand<string>(execute: SetInterval);
+        }
+
+        public void SetInterval(string interval)
+        {
+            Interval = interval;
+            StatusText = $"采样周期已设置为 {interval} ms";
+        } 
+
+        private void ApplyPreset(object? parameter)
+        {
+            string preset = parameter?.ToString() ?? string.Empty;
+
+            if(preset == "PLC")
+            {
+                DeviceName = "西门子 PLC";
+                IpAddress = "192.168.1.10";
+                Port = "102";
+                Interval = "1000";
+
+                StatusText = "已加载 PLC 通讯参数";
+            }
+
+            else if(preset == "ModbusTCP")
+            {
+                DeviceName = "Modbus TCP设备";
+                IpAddress = "192.168.1.20";
+                Port = "502";
+                Interval = "1000";
+
+                StatusText = "已加载 Modbus TCP 通讯参数";
+            }
+
+            else if(preset == "LocalTest")
+            {
+                DeviceName = "本机测试设备";
+                IpAddress = "127.0.0.1";
+                Port = "9000";
+                Interval = "500";
+
+                StatusText = "已加载本机测试参数";
+            }
         }
 
 
         private void Connect()
         {
-            MessageBox.Show($"设备连接成功!\n" +
-                $"设备名称为:{DeviceName}\n" +
-                $"IP地址为:{IpAddress}\n" +
-                $"端口为:{Port}\n" +
-                $"采样周期为:{Interval}ms");
+            StatusText = $"已准备连接: {DeviceName}- {IpAddress}:{Port}";
         }
 
         private bool CanConnect()
@@ -131,7 +182,8 @@ namespace 设备通讯参数校验面板.ViewModels
             IpAddress = string.Empty;
             Port = string.Empty;
             Interval = string.Empty;
-            
+
+            StatusText = "状态已清空";
         }
 
         private bool CanReset()
