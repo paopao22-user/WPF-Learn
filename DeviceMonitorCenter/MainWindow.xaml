@@ -1,0 +1,170 @@
+﻿<Window x:Class="DeviceMonitorCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:DeviceMonitorCenter.Converters"
+        xmlns:local="clr-namespace:DeviceMonitorCenter"
+        xmlns:vm="clr-namespace:DeviceMonitorCenter.ViewModels"
+        mc:Ignorable="d"
+        Title="设备监控与远程操作中心" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+
+        <conv:DeviceOperationConverter
+            x:Key="DeviceOperationConverter"/>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="设备监控与远程操作中心"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   Margin="0,0,0,20"/>
+
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Devices}"
+                  SelectedItem="{Binding SelectedDevice}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Id"
+                                    Binding="{Binding Id}"
+                                    Width="60"/>
+
+                <DataGridTextColumn Header="设备名称"
+                                    Binding="{Binding DeviceName}"
+                                    Width="180"/>
+
+                <DataGridTextColumn Header="Ip地址"
+                                    Binding="{Binding IpAddress}"
+                                    Width="160"/>
+
+                <DataGridTextColumn Header="端口"
+                                    Binding="{Binding Port}"
+                                    Width="100"/>
+
+                <DataGridTextColumn Header="温度"
+                                    Binding="{Binding Temperature}"
+                                    Width="100"/>
+
+                <DataGridTextColumn Header="状态"
+                                    Binding="{Binding Status}"
+                                    Width="100"/>
+
+                <DataGridTemplateColumn Header="操作" Width="120">
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <Button Content="连接"
+                                    Width="70"
+                                    Height="28"
+                                    
+                                    Command="{Binding DataContext.ConnectDeviceCommand, 
+                                            RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    
+                                    CommandParameter="{Binding}"/>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Border Grid.Row="2"
+                Margin="0,20,0,0"
+                Padding="20"
+                Background="#F3F4F6"
+                CornerRadius="8">
+
+            <StackPanel>
+
+                <TextBlock Text="设备指令操作"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Margin="0,0,0,15"/>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <!-- 操作类型 -->
+                    <TextBlock Text="操作类型"
+                               VerticalAlignment="Center"/>
+
+                    <ComboBox Width="140"
+                              Margin="10"
+                              SelectedValuePath="Content"
+                              SelectedValue="{Binding OperationType}">
+
+                        <ComboBoxItem Content="读取温度"/>
+                        <ComboBoxItem Content="读取压力"/>
+                        <ComboBoxItem Content="启动设备"/>
+                        <ComboBoxItem Content="停止设备"/>
+
+                    </ComboBox>
+
+                    <!-- 指令参数 -->
+                    <TextBlock Text="指令参数: "
+                               VerticalAlignment="Center"/>
+
+                    <TextBox Width="150"
+                             Height="30"
+                             Margin="10"
+                             Text="{Binding CommandValue, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <!-- 发送按钮 -->
+                    <Button Content="发送设备指令"
+                            Width="130"
+                            Height="32"
+                            Command="{Binding SendOperationCommand}">
+
+                        <Button.CommandParameter>
+
+                            <MultiBinding
+                                Converter="{StaticResource DeviceOperationConverter}">
+
+                                <Binding Path="SelectedDevice"/>
+                                <Binding Path="OperationType"/>
+                                <Binding Path="CommandValue"/>
+
+                            </MultiBinding>
+
+                        </Button.CommandParameter>
+
+                    </Button>
+
+                </StackPanel>
+
+            </StackPanel>
+
+
+        </Border>
+
+        <TextBlock Grid.Row="3"
+                   Text="{Binding StatusText}"
+                   FontSize="15"
+                   Margin="0,15,0,0"/>
+
+    </Grid>
+</Window>

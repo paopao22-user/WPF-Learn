@@ -47,6 +47,7 @@
   </Folder>
   <Folder Name="/day08/">
     <Project Path="day08_1CommandBase/day08_1CommandBase.csproj" Id="015b141c-4135-42f6-9e42-e3e281ce914a" />
+    <Project Path="DeviceMonitorCenter/DeviceMonitorCenter.csproj" Id="3e01ced6-ef90-48e4-b8f6-ca2723425386" />
     <Project Path="智能登录校验面板/智能登录校验面板.csproj" Id="927e577b-d2de-41bd-872a-60213bae215b" />
     <Project Path="智能登录校验面版改造/智能登录校验面版改造.csproj" Id="5cacd2a2-b9f5-49f0-ad6b-dda70db21514" />
     <Project Path="智能计算器/智能计算器.csproj" Id="085be8bc-089f-42f9-b92a-c72f5851fe9f" />
