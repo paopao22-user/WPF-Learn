@@ -64,12 +64,12 @@ namespace PrismDeviceConfigLite.ViewModels
 
 
         //4.执行命令业务
-        public void SaveConfig()
+        private void SaveConfig()
         {
             StatusMessage = $"配置已保存: {DeviceName} ({IpAddress}:{Port}) [{DateTime.Now:HH:mm:ss}]";
         }
 
-        public void ResetDefault()
+        private void ResetDefault()
         {
             DeviceName = "PLC";
             IpAddress = "155.26.1";
