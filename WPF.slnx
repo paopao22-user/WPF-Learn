@@ -56,5 +56,6 @@
   <Folder Name="/day09/">
     <Project Path="day09-1Prism入门/day09-1Prism入门.csproj" Id="892a16a1-1862-4a26-ace2-b1aed6127437" />
     <Project Path="day09-2Prism模板/Prism模板.csproj" Id="c298e284-f8ab-4356-9045-9949d8ef28a4" />
+    <Project Path="PrismDeviceConfigLite/PrismDeviceConfigLite.csproj" Id="528364de-9d37-4eb1-b489-9aa0890af8c8" />
   </Folder>
 </Solution>
