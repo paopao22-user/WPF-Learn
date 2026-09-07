@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="PrismLineMonitor.Views.DeviceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PrismLineMonitor.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <StackPanel Margin="40" Background="DarkBlue">
+
+        <TextBlock Text="设备管理"
+                   FontSize="28"
+                   Margin="0,0,0,30"/>
+
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,5">
+
+            <TextBlock Text="PLC-01"
+                       Width="150"/>
+
+            <Button Content="查看详情"
+                    Margin="0,0,20,0"
+                    Command="{Binding DetailCommand}"
+                    CommandParameter="1"/>
+
+            <Button Content="模拟报警"
+                    Command="{Binding AlarmCommand}"
+                    CommandParameter="PLC-01"/>
+
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,5">
+
+            <TextBlock Text="PLC-02"
+                       Width="150"/>
+
+            <Button Content="查看详情"
+                    Margin="0,0,20,0"
+                    Command="{Binding DetailCommand}"
+                    CommandParameter="2"/>
+
+            <Button Content="模拟报警"
+                    Command="{Binding AlarmCommand}"
+                    CommandParameter="PLC-02"/>
+
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,5">
+
+            <TextBlock Text="PLC-03"
+                       Width="150"/>
+
+            <Button Content="查看详情"
+                    Margin="0,0,20,0"
+                    Command="{Binding DetailCommand}"
+                    CommandParameter="3"/>
+
+            <Button Content="模拟报警"
+                    Command="{Binding AlarmCommand}"
+                    CommandParameter="PLC-03"/>
+
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

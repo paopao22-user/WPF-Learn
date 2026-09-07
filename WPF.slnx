@@ -57,5 +57,8 @@
     <Project Path="day09-1Prism入门/day09-1Prism入门.csproj" Id="892a16a1-1862-4a26-ace2-b1aed6127437" />
     <Project Path="day09-2Prism模板/Prism模板.csproj" Id="c298e284-f8ab-4356-9045-9949d8ef28a4" />
     <Project Path="PrismDeviceConfigLite/PrismDeviceConfigLite.csproj" Id="528364de-9d37-4eb1-b489-9aa0890af8c8" />
+    <Project Path="PrismDeviceNavigation/PrismDeviceNavigation.csproj" Id="ae2e9896-6bff-4b18-af09-874268706580" />
+    <Project Path="PrismLineMonitor/PrismLineMonitor.csproj" Id="0bed2024-f9c0-4f38-bd54-466564014b0b" />
+    <Project Path="PrismRegionDemo/PrismRegionDemo.csproj" Id="e278cde8-3441-4da0-8051-3ebd0be1dc23" />
   </Folder>
 </Solution>
