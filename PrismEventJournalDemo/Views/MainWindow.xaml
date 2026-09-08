@@ -1,0 +1,73 @@
+﻿<Window x:Class="PrismEventJournalDemo.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="500" Width="800" >
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="60"/>
+
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="150"/>
+
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <!-- 顶部 -->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+
+            <Button Content="&lt;后退"
+                    Width="90"
+                    Margin="10"
+                    Command="{Binding BackCommand}"/>
+
+            <Button Content="&gt;前进"
+                    Width="90"
+                    Margin="10"
+                    Command="{Binding ForwardCommand}"/>
+
+        </StackPanel>
+
+
+        <!-- 左侧导航 -->
+        <StackPanel Grid.Row="1" 
+                    Grid.Column="0"
+                    Background="LightGray">
+
+            <Button Content="首页"
+                    Height="50"
+                    Margin="0,0,0,10"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="HomeView"/>
+
+            <Button Content="设备管理"
+                    Height="50"
+                    Margin="0,0,0,10"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="DeviceView"/>
+
+            <Button Content="报警中心"
+                    Height="50"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="AlarmView"/>
+
+        </StackPanel>
+
+
+
+        <!-- Prism Region -->
+        <ContentControl Grid.Row="1"
+                        Grid.Column="1"
+                        prism:RegionManager.RegionName="MainRegion" />
+    </Grid>
+</Window>

@@ -17,6 +17,7 @@ namespace PrismLineMonitor.ViewModels
 
         private readonly IEventAggregator _eventAggregator;     //负责发消息
 
+        //  构造函数注入事件聚合器大管家
         public DeviceViewModel(IRegionManager regionManager, IEventAggregator eventAggregator)
         {
             _regionManager = regionManager;

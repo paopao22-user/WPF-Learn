@@ -16,6 +16,7 @@ namespace PrismLineMonitor.ViewModels
     {
         private readonly IEventAggregator _eventAggregator;
 
+        //ObservableCollection 发集合变化通知
         public ObservableCollection<string> AlarmList { get; } = new ObservableCollection<string>();
 
         //1.属性
