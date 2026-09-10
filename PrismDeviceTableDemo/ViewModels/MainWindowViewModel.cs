@@ -1,4 +1,4 @@
-﻿using Prism.Commands;
+using Prism.Commands;
 using Prism.Mvvm;
 using PrismDeviceTableDemo.Models;
 using System;
@@ -44,7 +44,7 @@ namespace PrismDeviceTableDemo.ViewModels
 
         public string SelectedDeviceType
         {
-            get { return _selectedDeviceType = "全部"; }
+            get { return _selectedDeviceType; }
             set 
             { 
                 if(SetProperty(ref _selectedDeviceType, value))
@@ -82,6 +82,8 @@ namespace PrismDeviceTableDemo.ViewModels
                         if(value != null)
                         {
                         //将原对象的字符串属性逐个提取并赋值给 ViewModel 中的编辑属性
+                        //因：您在下方表格中点击了某一行;  传递:触发 SelectedDevice 的 Setter，将该行对象赋给 value
+                        //果: 执行 EditDeviceType = value.DeviceType;，驱动上方表单的下拉框自动展开并选中 "PLC"。这就是所谓的 “自动回显”
                             EditDeviceName = value.DeviceName;
 
                             EditDeviceType = value.DeviceType;
@@ -99,7 +101,7 @@ namespace PrismDeviceTableDemo.ViewModels
 
         public string EditDeviceName
         {
-            get { return _editDeviceName = ""; }
+            get { return _editDeviceName; }
             set { SetProperty(ref _editDeviceName, value); }
         }
 
@@ -197,7 +199,12 @@ namespace PrismDeviceTableDemo.ViewModels
             DeleteCommand = new DelegateCommand(DeleteDevice);
 
             SearchCommand = new DelegateCommand(FilterDevices);
-                
+
+            EditRowCommand = new DelegateCommand<DeviceModel>(EditRow);
+
+            DeleteRowCommand = new DelegateCommand<DeviceModel>(DeleteRow);
+
+
         }
 
 
@@ -209,6 +216,48 @@ namespace PrismDeviceTableDemo.ViewModels
         public DelegateCommand DeleteCommand { get; }
 
         public DelegateCommand SearchCommand { get; }
+
+        public DelegateCommand<DeviceModel> EditRowCommand { get; }
+
+        public DelegateCommand<DeviceModel> DeleteRowCommand { get; }
+
+        /// <summary>
+        /// 编辑行命令的执行方法
+        /// </summary>
+        /// <param name="device"></param>
+        private void EditRow(DeviceModel device)
+        {
+            if(device == null)
+            {
+                return;
+            }
+
+            SelectedDevice = device;
+        }
+
+        /// <summary>
+        /// 删除行命令的执行方法
+        /// </summary>
+        /// <param name="device"></param>
+        private void DeleteRow(DeviceModel device)
+        {
+            // 阶段一：防御性保护
+            if (device == null)
+                return;
+
+            // 阶段二：从数据源头抹除
+            _allDevices.Remove(device);
+
+            // 阶段三：断开正在编辑的状态关联与表单重置: 如果被删除的这一项恰好是用户当前选中的项（SelectedDevice == device），必须第一时间置空并清空表单
+            if (SelectedDevice == device)
+            {
+                SelectedDevice = null;
+
+                ClearEditForm();
+            }
+            // 阶段四：重新驱动界面渲染展示 : 执行 FilterDevices()，重新将全量数据按筛选规则投射到 UI 集合上。
+            FilterDevices();
+        }
 
 
         /// <summary>
@@ -277,7 +326,7 @@ namespace PrismDeviceTableDemo.ViewModels
             // 4. 存入母库
             _allDevices.Add(newDevice);
 
-            // 5. 重新执行筛选管道
+            // 5. 重新执行筛选管道:重新计算当前条件下 这个新设备该不该显示？
             FilterDevices();
 
             // 6. 清空输入表单
@@ -289,9 +338,11 @@ namespace PrismDeviceTableDemo.ViewModels
         // 更新设备
         private void UpdateDevice()
         {
+            // 1. 防御：确保当前确实选中了一台设备
             if (SelectedDevice == null)
                 return;
 
+            // 2. 将编辑框里修改后的最新值，倒灌回原实体对象！
             SelectedDevice.DeviceName = EditDeviceName;
 
             SelectedDevice.DeviceType = EditDeviceType;
@@ -300,7 +351,7 @@ namespace PrismDeviceTableDemo.ViewModels
 
             SelectedDevice.Status = EditStatus;
 
-
+            // 3. 驱动筛选管道刷新界面
             FilterDevices();
         }
 
